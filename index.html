@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="document.js"></script>
+    <link rel="stylesheet" type="text/css" src="style.css">
+    </link>
+</head>
+<div class="app-container">
+    <div class="container">
+        <aside class="sidebar">
+            <select id="mode">
+                <option value="Pointilism">Pointilism</option>
+                <option value="Pixelate">Pixelate</option>
+            </select>
+            <!-- Upload Section -->
+            <div class="panel upload-panel">
+                <div class="upload-area">
+                    <label for="fileUpload" class="upload-label">
+                        <span class="upload-icon">📁</span>
+                        <span>Drop image/video or click to upload</span>
+                    </label>
+                    <input type="file" id="fileUpload" accept="image/*,video/*" class="upload-input">
+                </div>
+            </div>
+
+            <!-- Controls Section -->
+            <div class="panel controls-panel">
+                <!-- Primary Controls -->
+                <div class="control-group">
+                    <label for="gridSize">Grid Size</label>
+                    <div class="slider-container">
+                        <input type="range" id="gridSize" min="5" max="50" value="20">
+                        <span class="value-display" id="gridSizeVal">20</span>
+                    </div>
+                </div>
+
+                <!-- Image Adjustments -->
+                <div class="control-section">
+                    <h3>Image Adjustments</h3>
+                    <div class="control-group">
+                        <label for="brightness">Brightness</label>
+                        <div class="slider-container">
+                            <input type="range" id="brightness" min="-100" max="100" value="20">
+                            <span class="value-display" id="brightnessVal">20</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="contrast">Contrast</label>
+                        <div class="slider-container">
+                            <input type="range" id="contrast" min="-100" max="100" value="0">
+                            <span class="value-display" id="contrastVal">0</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="gamma">Gamma</label>
+                        <div class="slider-container">
+                            <input type="range" id="gamma" min="0.1" max="3" step="0.1" value="1.0">
+                            <span class="value-display" id="gammaVal">1.0</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="smoothing">Smoothing</label>
+                        <div class="slider-container">
+                            <input type="range" id="smoothing" min="0" max="5" step="0.5" value="0">
+                            <span class="value-display" id="smoothingVal">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <select id="colorSampling">
+                    <option value="Average">Average</option>
+                    <option value="Median">Median</option>
+                    <option value="Dominant">Dominant</option>
+                </select>
+
+                <!-- Dithering Options -->
+                <div class="control-section">
+                    <h3>Dithering</h3>
+                    <div class="control-group">
+                        <select id="ditherType" class="dither-select">
+                            <option value="None">None</option>
+                            <option value="FloydSteinberg">Floyd-Steinberg</option>
+                            <option value="Ordered">Ordered</option>
+                            <option value="Noise">Noise</option>
+                            <option value="Atkinson">Atkinson</option>
+                            <option value="Burkes">Burkes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <label><input type="checkbox" id="grayscale"> Grayscale</label>
+
+            <!-- Action Buttons -->
+            <div class="panel action-panel">
+                <button id="resetButton" class="btn btn-secondary">Reset All</button>
+                <button id="saveButton" class="btn btn-primary">Export PNG</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="canvas-container">
+                <canvas id="halftoneCanvas"></canvas>
+            </div>
+        </main>
+    </div>
+</div>
+
+</html>
